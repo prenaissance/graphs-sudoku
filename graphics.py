@@ -96,6 +96,7 @@ class Graphics:
                     for k in range(1, 10):  # all the possible numbers
                         if Graphics.checkSudoku(grid, i, j, k):
                             grid[i][j] = k
+                            Graphics.eraseDigit(screen, screen_settings, i, j)
                             Graphics.drawDigit(screen, screen_settings, i, j, k, (0, 0, 255))
                             pygame.display.update()
                             # print every step with console or
@@ -104,5 +105,6 @@ class Graphics:
                                 return True
                             grid[i][j] = 0  # backtracking
                             Graphics.eraseDigit(screen, screen_settings, i, j)
+                            Graphics.drawDigit(screen, screen_settings, i, j, 0, (255, 0, 0))
                             pygame.display.update()
                     return False

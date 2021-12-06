@@ -37,7 +37,7 @@ class VisualiseSudoku:
     def run(self):
         clock = pygame.time.Clock()
         while True:
-            clock.tick()
+            clock.tick(30)
             self.check_events()
             if self.create_visualisation:
                 self.thread = Thread(target=Graphics.sudokuSolve, args=(self.screen, self.screen_settings, self.grid))
@@ -149,6 +149,14 @@ class VisualiseSudoku:
                 self.active_col = mouse_pos[0] // self.screen_settings.square_width
                 self.need_box_update = True
                 self.active_digit = None
+        else:
+            if pygame.key.get_pressed()[pygame.K_l]:
+                if self.screen_settings.tick > 10:
+                    self.screen_settings.tick -= 10
+            if pygame.key.get_pressed()[pygame.K_k]:
+                if self.screen_settings.tick < 300:
+                    self.screen_settings.tick += 10
+
 
     def new_grid(self):
         new_grid = [[0, 0, 0, 0, 0, 0, 0, 0, 0],

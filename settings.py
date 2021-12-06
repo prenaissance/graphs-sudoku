@@ -7,7 +7,7 @@ class ScreenSettings:
         self.fw = round(self.square_width / 3)
         self.fh = round(self.square_height / 5 * 3)
         # if increase tick it increase visualisation speed
-        self.tick = 10
+        self.tick = 100
 
     def changeResolution(self, new_width, new_height):
         self.screen_width = new_width
